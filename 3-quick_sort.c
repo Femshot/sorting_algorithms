@@ -40,6 +40,7 @@ void quickSort(int arr[], int low, int high, int size)
  * @arr: Array to be sorted
  * @low: Start index of array
  * @high: End index of array
+ * @size: Size of original array
  *
  * Return: Index of partition
  */
