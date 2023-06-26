@@ -28,9 +28,7 @@ void quickSort(int arr[], int low, int high, int size)
 
 	if (low < high)
 	{
-		pat = partition(arr, low, high);
-		print_array(arr, size);
-
+		pat = partition(arr, low, high, size);
 		quickSort(arr, low, pat - 1, size);
 		quickSort(arr, pat + 1, high, size);
 	}
@@ -45,7 +43,7 @@ void quickSort(int arr[], int low, int high, int size)
  *
  * Return: Index of partition
  */
-int partition(int arr[], int low, int high)
+int partition(int arr[], int low, int high, int size)
 {
 	int pivot = arr[high];
 	int i = (low - 1), j;
@@ -56,9 +54,15 @@ int partition(int arr[], int low, int high)
 		{
 			i++;
 			swap(&arr[i], &arr[j]);
+			if (arr[i] != arr[j])
+				print_array(arr, size);
 		}
 	}
-	swap(&arr[i + 1], &arr[high]);
+	if (arr[i + 1] != arr[high])
+	{
+		swap(&arr[i + 1], &arr[high]);
+		print_array(arr, size);
+	}
 	return (i + 1);
 }
 
